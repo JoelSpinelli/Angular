@@ -1,5 +1,5 @@
 export class Frase {
 
-  constructor(public fraseEng: String, public frasePtBr: String) {}
+  constructor(public fraseEng: string, public frasePtBr: string) {}
 
 }
