@@ -12,9 +12,7 @@ export class TentativasComponent implements OnInit {
   public coracaoCheio: string;
 
   public coracoes: Array<Coracao> = [
-    new Coracao(true),
-    new Coracao(true),
-    new Coracao(true)
+    new Coracao(true), new Coracao(true), new Coracao(true)
   ];
 
   constructor() {
