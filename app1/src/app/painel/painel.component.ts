@@ -19,9 +19,12 @@ export class PainelComponent implements OnInit {
 
   public progresso: number;
 
+  public tentativas: number;
+
   constructor() {
     this.rodada = 0;
     this.progresso = 0;
+    this.tentativas = 3;
     this.resposta = '';
     this.atualizaRodada();
   }
@@ -34,13 +37,11 @@ export class PainelComponent implements OnInit {
   }
 
   public verificarResposta(): void {
-
     // trocar a pergunta da rodada
-    if (this.rodadaFrase.frasePtBr === this.resposta) {
+    if (this.rodadaFrase.frasePtBr.toUpperCase() === this.resposta.toUpperCase()) {
       this.rodada++;
 
       this.progresso += (100 / this.frases.length);
-      console.log(this.progresso);
 
       this.atualizaRodada();
       alert('A tradução está correta');
@@ -48,8 +49,12 @@ export class PainelComponent implements OnInit {
       this.resposta = '';
     } else {
       alert('A tradução está errada');
-    }
+      this.tentativas--;
 
+      if (this.tentativas === -1) {
+        alert('Você perdeu todas as tentativas!');
+      }
+    }
   }
 
   public atualizaRodada(): void {
