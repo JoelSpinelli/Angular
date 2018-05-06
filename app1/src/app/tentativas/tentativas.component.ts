@@ -15,15 +15,14 @@ export class TentativasComponent implements OnInit, OnChanges {
   ];
 
   constructor() {
-    console.log(this.coracoes);
   }
 
   ngOnChanges() {
     if (this.tentativas !== this.coracoes.length) {
-      let indice = this.coracoes.length - this.tentativas;
+      let indice: number;
+      indice = this.coracoes.length - this.tentativas;
       this.coracoes[indice - 1].cheio = false;
     }
-    console.log('tentativas recebidas do painel ', this.tentativas);
   }
 
   ngOnInit() {
